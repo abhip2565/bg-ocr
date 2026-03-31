@@ -1,0 +1,15 @@
+{
+  "originHash" : "94d93a8e158228786ec6c7f40a3ae7aa6152ca8a89b64ba93c6fb0aa22fdccb5",
+  "pins" : [
+    {
+      "identity" : "bg-ocr",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/abhip2565/bg-ocr.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "5ca6b40767aed6d8deac939d0b281f44879305d3"
+      }
+    }
+  ],
+  "version" : 3
+}

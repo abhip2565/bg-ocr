@@ -1,0 +1,31 @@
+name: SampleOCR
+options:
+  bundleIdPrefix: com.sample
+  deploymentTarget:
+    iOS: "16.0"
+  xcodeVersion: "16.0"
+
+packages:
+  BGOCRProcessor:
+    url: https://github.com/abhip2565/bg-ocr.git
+    branch: master
+
+targets:
+  SampleOCR:
+    type: application
+    platform: iOS
+    sources:
+      - SampleOCR
+    info:
+      path: SampleOCR/Info.plist
+      properties:
+        NSPhotoLibraryUsageDescription: "Select photos to perform OCR text extraction."
+        BGTaskSchedulerPermittedIdentifiers:
+          - com.bgocrprocessor.processing
+        UILaunchScreen: {}
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.sample.sampleocr
+      INFOPLIST_FILE: SampleOCR/Info.plist
+    dependencies:
+      - package: BGOCRProcessor
+        product: BGOCRProcessor
