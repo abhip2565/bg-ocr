@@ -5,6 +5,7 @@ struct GalleryPickerView: View {
 
     @StateObject private var viewModel = OCRViewModel()
     @State private var showResults = false
+    @State private var showPreview = true
 
     var body: some View {
         NavigationStack {
@@ -23,24 +24,32 @@ struct GalleryPickerView: View {
                 }
                 .onChange(of: viewModel.selectedPhotos) { _ in
                     Task { await viewModel.loadSelectedPhotos() }
+                    showPreview = viewModel.selectedPhotos.count <= 20
                 }
 
                 if !viewModel.savedImagePaths.isEmpty {
-                    ScrollView {
-                        LazyVGrid(columns: [
-                            GridItem(.adaptive(minimum: 100), spacing: 8)
-                        ], spacing: 8) {
-                            ForEach(viewModel.savedImagePaths, id: \.self) { path in
-                                if let uiImage = UIImage(contentsOfFile: path) {
-                                    Image(uiImage: uiImage)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 100, height: 100)
-                                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                    if viewModel.savedImagePaths.count > 20 {
+                        Toggle("Show Previews", isOn: $showPreview)
+                            .padding(.horizontal)
+                    }
+
+                    if showPreview {
+                        ScrollView {
+                            LazyVGrid(columns: [
+                                GridItem(.adaptive(minimum: 100), spacing: 8)
+                            ], spacing: 8) {
+                                ForEach(viewModel.savedImagePaths, id: \.self) { path in
+                                    if let uiImage = UIImage(contentsOfFile: path) {
+                                        Image(uiImage: uiImage)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 100, height: 100)
+                                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    }
                                 }
                             }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
                     }
 
                     Text("\(viewModel.savedImagePaths.count) photos selected")
