@@ -1,4 +1,6 @@
 fileignoreconfig:
+- filename: README.md
+  checksum: c1c9a0f6b28dadaa76349e456d24699aaa07f98246bc79de410842a8d551aecb
 - filename: SampleApp/SampleOCR/Info.plist
   checksum: 9828b06453408ab90146e2c7ca8f0aa6139b7da88f431940d66b9603174eb8bf
 - filename: SampleApp/SampleOCR.xcodeproj/project.pbxproj
