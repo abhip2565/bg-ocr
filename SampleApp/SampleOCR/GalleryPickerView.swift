@@ -81,6 +81,23 @@ struct GalleryPickerView: View {
                     .disabled(viewModel.isProcessing)
                 }
 
+                if viewModel.recoveredCount > 0 {
+                    VStack(spacing: 8) {
+                        Text("Recovered \(viewModel.recoveredCount) items from previous session")
+                            .font(.subheadline)
+                            .foregroundColor(.orange)
+                        if viewModel.isProcessing {
+                            ProgressView("Processing \(viewModel.processedCount)/\(viewModel.totalCount)")
+                        }
+                        if !viewModel.results.isEmpty {
+                            Button("View Results") { showResults = true }
+                        }
+                    }
+                    .padding()
+                    .background(Color.orange.opacity(0.1))
+                    .cornerRadius(12)
+                }
+
                 if let error = viewModel.error {
                     Text(error)
                         .foregroundColor(.red)
@@ -91,6 +108,7 @@ struct GalleryPickerView: View {
             }
             .padding()
             .navigationTitle("OCR Sample")
+            .task { await viewModel.checkForRecoveredItems() }
             .toolbar {
                 if !viewModel.savedImagePaths.isEmpty {
                     Button("Clear") { viewModel.reset() }
