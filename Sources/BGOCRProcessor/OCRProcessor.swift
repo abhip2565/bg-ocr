@@ -216,6 +216,7 @@ public actor OCRProcessor {
     }
 
     private func processingLoop() async {
+        defer { processingTask = nil }
         while !Task.isCancelled && !isPaused {
             let currentAppState = await appStateObserver.currentState
             let concurrencyLimit = ConcurrencyPolicy.limit(for: currentAppState)

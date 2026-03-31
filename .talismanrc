@@ -2,7 +2,7 @@ fileignoreconfig:
 - filename: SampleApp/SampleOCR/Info.plist
   checksum: c94b47379409d4ab535e7fe99b304e48861fb9b309b2e86c0f95548d8ed297ea
 - filename: SampleApp/SampleOCR.xcodeproj/project.pbxproj
-  checksum: ce82d96b372e1b52a4fdb6460206f435bce07e731efc01b52ed2de80e1772167
+  checksum: acded4c96b5e90c838ee042ad7b98d05db67ebc3c5f5d4eae4992fcc84d8b1f4
 - filename: SampleApp/SampleOCR.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
   checksum: 6736fc7b29089a154bca2d3eb1facd846828655ae335e6cef8f3ed9d265d4a2b
 - filename: Tests/BGOCRProcessorTests/ImagePipelineTests.swift
