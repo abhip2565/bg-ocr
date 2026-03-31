@@ -11,7 +11,7 @@ struct GalleryPickerView: View {
             VStack(spacing: 16) {
                 PhotosPicker(
                     selection: $viewModel.selectedPhotos,
-                    maxSelectionCount: 20,
+                    maxSelectionCount: 500,
                     matching: .images
                 ) {
                     Label("Select Photos", systemImage: "photo.on.rectangle.angled")
