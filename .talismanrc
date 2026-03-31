@@ -1,0 +1,8 @@
+fileignoreconfig:
+- filename: SampleApp/SampleOCR/Info.plist
+  checksum: 9733325936c1ca21c95595808d4b323c17f29eae9d9d98ab837ea34f704576fd
+- filename: Tests/BGOCRProcessorTests/ImagePipelineTests.swift
+  checksum: 2f780d1ff7b14e40768abaedb4b9bc435d930844f0326566276eac706e6e19bf
+- filename: Tests/BGOCRProcessorTests/EndToEndTests.swift
+  checksum: 149008abd1aba8d13f37bcedacbce79c27e4a5945714e64d3d86650e1254bbf9
+version: ""
