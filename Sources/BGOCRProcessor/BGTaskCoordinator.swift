@@ -18,6 +18,10 @@ public final class BGTaskCoordinator: Sendable {
             guard let processingTask = task as? BGProcessingTask else { return }
             Self.logger.debug("BGProcessingTask handler invoked")
 
+            processingTask.expirationHandler = {
+                Task { await processor.pauseProcessing() }
+            }
+
             Task {
                 // Schedule next BGTask eagerly before processing starts.
                 // If the app gets killed mid-processing, the next task is already queued.
@@ -31,12 +35,6 @@ public final class BGTaskCoordinator: Sendable {
                 if !shouldReschedule {
                     BGTaskScheduler.shared.cancel(taskRequestWithIdentifier: Self.taskIdentifier)
                     Self.logger.debug("No pending items, cancelled next BGTask")
-                }
-
-                processingTask.expirationHandler = {
-                    Task {
-                        await processor.pauseProcessing()
-                    }
                 }
 
                 processingTask.setTaskCompleted(success: true)

@@ -22,10 +22,15 @@ targets:
         NSPhotoLibraryUsageDescription: "Select photos to perform OCR text extraction."
         BGTaskSchedulerPermittedIdentifiers:
           - com.bgocrprocessor.processing
+        UIBackgroundModes:
+          - processing
         UILaunchScreen: {}
+    entitlements:
+      path: SampleOCR/SampleOCR.entitlements
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.sample.sampleocr
       INFOPLIST_FILE: SampleOCR/Info.plist
+      CODE_SIGN_ENTITLEMENTS: SampleOCR/SampleOCR.entitlements
     dependencies:
       - package: BGOCRProcessor
         product: BGOCRProcessor

@@ -17,9 +17,10 @@
 
 /* Begin PBXFileReference section */
 		30EC8CB50DDF411998C4E3EC /* OCRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewModel.swift; sourceTree = "<group>"; };
+		37F4DCCAD4A9EC6F86134170 /* SampleOCR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SampleOCR.entitlements; sourceTree = "<group>"; };
 		580823C814C54B7BCB340C3F /* GalleryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPickerView.swift; sourceTree = "<group>"; };
 		8DF75E398C4AD3733FA48E33 /* SampleOCRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleOCRApp.swift; sourceTree = "<group>"; };
-		A76DE634D0D08651DBB33424 /* SampleOCR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleOCR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A76DE634D0D08651DBB33424 /* SampleOCR.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SampleOCR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B87892A631983F8709811596 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C0975F0880F179537595E7B2 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 		F387464AC543C438AC503F18 /* ResultsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsListView.swift; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 				B87892A631983F8709811596 /* Info.plist */,
 				30EC8CB50DDF411998C4E3EC /* OCRViewModel.swift */,
 				F387464AC543C438AC503F18 /* ResultsListView.swift */,
+				37F4DCCAD4A9EC6F86134170 /* SampleOCR.entitlements */,
 				8DF75E398C4AD3733FA48E33 /* SampleOCRApp.swift */,
 			);
 			path = SampleOCR;
@@ -96,6 +98,8 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = 576C3C8AEDBB2EABFF27C384 /* Build configuration list for PBXProject "SampleOCR" */;
 			developmentRegion = en;
@@ -139,14 +143,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SampleOCR/SampleOCR.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = DGQ6355MH2;
 				INFOPLIST_FILE = SampleOCR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sample.samplebgocr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.sampleocr;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -275,14 +279,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SampleOCR/SampleOCR.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = DGQ6355MH2;
 				INFOPLIST_FILE = SampleOCR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sample.samplebgocr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.sampleocr;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

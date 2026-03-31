@@ -221,6 +221,7 @@ public actor OCRProcessor {
             let currentAppState = await appStateObserver.currentState
             let concurrencyLimit = ConcurrencyPolicy.limit(for: currentAppState)
             let maxDimension = ConcurrencyPolicy.maxImageDimension(for: currentAppState)
+            Self.logger.debug("Processing loop: state=\(String(describing: currentAppState)), concurrency=\(concurrencyLimit), maxDimension=\(maxDimension)")
 
             if availableMemory() < memoryThreshold {
                 Self.logger.error("Memory below threshold, stopping processing")

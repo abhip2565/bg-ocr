@@ -24,6 +24,10 @@
 	<string>1</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Select photos to perform OCR text extraction.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>processing</string>
+	</array>
 	<key>UILaunchScreen</key>
 	<dict/>
 </dict>

@@ -110,8 +110,16 @@ struct GalleryPickerView: View {
             .navigationTitle("OCR Sample")
             .task { await viewModel.checkForRecoveredItems() }
             .toolbar {
-                if !viewModel.savedImagePaths.isEmpty {
-                    Button("Clear") { viewModel.reset() }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Clear All") {
+                        Task { await viewModel.clearAll() }
+                    }
+                    .foregroundColor(.red)
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if !viewModel.savedImagePaths.isEmpty {
+                        Button("Clear") { viewModel.reset() }
+                    }
                 }
             }
             .navigationDestination(isPresented: $showResults) {

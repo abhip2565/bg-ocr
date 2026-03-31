@@ -171,6 +171,12 @@ final class OCRViewModel: ObservableObject {
         isProcessing = false
         processedCount = 0
         totalCount = 0
+        recoveredCount = 0
         error = nil
+    }
+
+    func clearAll() async {
+        try? await OCRProcessor.shared.cancelAll()
+        reset()
     }
 }
