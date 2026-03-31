@@ -67,16 +67,12 @@ struct ImageDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    /// Vision normalizedRect has origin at bottom-left. Convert to top-left display coordinates.
+    /// normalizedRect is already in top-left origin (converted in OCREngine). Just scale to display size.
     private func convertRect(_ normalized: CGRect, imageSize: CGSize, displaySize: CGSize) -> CGRect {
-        let scaleX = displaySize.width / imageSize.width
-        let scaleY = displaySize.height / imageSize.height
-        let scale = min(scaleX, scaleY)
-
-        let x = normalized.origin.x * imageSize.width * scale
-        let y = (1 - normalized.origin.y - normalized.height) * imageSize.height * scale
-        let w = normalized.width * imageSize.width * scale
-        let h = normalized.height * imageSize.height * scale
+        let x = normalized.origin.x * displaySize.width
+        let y = normalized.origin.y * displaySize.height
+        let w = normalized.width * displaySize.width
+        let h = normalized.height * displaySize.height
 
         return CGRect(x: x, y: y, width: w, height: h)
     }
